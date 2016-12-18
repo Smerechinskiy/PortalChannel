@@ -1,0 +1,31 @@
+portal_channels_page:
+    path: /
+    defaults: { _controller: PortalBundle:Channel:index }
+
+portal_my_channels_page:
+    path: /my
+    defaults: { _controller: PortalBundle:Channel:myChannels }
+
+portal_channels_create:
+    path: /create
+    defaults: { _controller: PortalBundle:Channel:formCreate }
+
+portal_channels_edit:
+    path: /edit/{id}
+    defaults: { _controller: PortalBundle:Channel:formEdit }
+
+portal_channel_delete:
+    path: /delete/{id}
+    defaults: { _controller: PortalBundle:Channel:delete }
+
+portal_channel_follow:
+    path: /follow/{id}
+    defaults: { _controller: PortalBundle:Channel:follow }
+
+portal_channel_un_follow:
+    path: /unfollow/{id}
+    defaults: { _controller: PortalBundle:Channel:unFollow }
+
+portal_channel_my_followed:
+    path: /followed
+    defaults: { _controller: PortalBundle:Channel:myFollowed }

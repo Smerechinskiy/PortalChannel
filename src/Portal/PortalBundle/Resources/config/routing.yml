@@ -1,0 +1,7 @@
+portal_homepage:
+    path:     /
+    defaults: { _controller: PortalBundle:Channel:index }
+
+portal_channels:
+    resource: "@PortalBundle/Resources/config/routing/channel.yml"
+    prefix: /channels

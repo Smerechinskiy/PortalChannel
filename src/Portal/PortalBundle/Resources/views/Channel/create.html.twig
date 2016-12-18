@@ -1,0 +1,18 @@
+{% extends "PortalBundle::layout.html.twig" %}
+
+{% block content %}
+    <h3>Новая категория</h3>
+    <a href="{{ path('portal_my_channels_page') }}">
+        <button class="button btn-ago" title="Вернуться к списку категорий">
+            <i class="glyphicon glyphicon-arrow-left"></i>  Вернуться
+        </button>
+    </a>
+    <div class="well clearfix">
+        {{ form_start(form) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.description) }}
+        {{ form_row(form.button) }}
+        {{ form_row(form._token) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

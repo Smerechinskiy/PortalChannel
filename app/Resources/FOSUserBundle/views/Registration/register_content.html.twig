@@ -1,0 +1,22 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<div class="main clearfix">
+    <h3>Регистрация</h3><br>
+    <form action="{{ path('fos_user_registration_register') }}" method="POST" id="register-form">
+            {{ form_row(form._token) }}
+            {{ form_errors(form.username) }}
+            {{ form_errors(form.email) }}
+            {{ form_errors(form.plainPassword.first) }}
+            {{ form_errors(form.plainPassword.second) }}
+            <input id="register_email" name="fos_user_registration_form[email]" class="form-control" type="text" placeholder="E-Mail" required>
+            <input id="register_username" name="fos_user_registration_form[username]" class="form-control" type="text" placeholder="Логин" required>
+            <input id="register_password" name="fos_user_registration_form[plainPassword][first]" class="form-control" type="password" placeholder="Пароль" required>
+            <input id="register_password_confirmation" name="fos_user_registration_form[plainPassword][second]" class="form-control" type="password" placeholder="Подтвердите пароль" required>
+
+            <div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Зарегистрироваться</button>
+            </div>
+            <div>
+                <a href="{{ path('fos_user_security_login') }}" type="button" class="btn btn-link">Войти</a>
+            </div>
+    </form>
+</div>

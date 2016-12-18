@@ -1,0 +1,40 @@
+{% extends "PortalBundle::layout.html.twig" %}
+
+{% block content %}
+    <h3>Мои каналы</h3>
+    <a href="{{ path('portal_channels_create') }}">
+        <button class="button btn-create" title="Создать новый канал"><i class="glyphicon glyphicon-plus"></i>   Создать</button>
+    </a>
+    {% if channels|length > 0 %}
+        <table class="table backend table-hover">
+            <thead>
+            <tr class="grey">
+                <th width="150">Название</th>
+                <th>Описание</th>
+                <th width="40"></th>
+                <th width="40"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for channel in channels %}
+                <tr>
+                    <td><b>{{ channel.name }}</b></td>
+                    <td>{{ channel.description }}</td>
+                    <td align="right">
+                        <a class="add" href="{{ path('portal_channels_edit', {'id': channel.id}) }}" title="Редактировать канал">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                        </a>
+                    </td>
+                    <td align="right">
+                        <a class="delete" href="{{ path('portal_channel_delete', {'id': channel.id}) }}" title="Удалить канал">
+                            <i class="glyphicon glyphicon-remove"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-info">Список каналов пуст</div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,10 @@
+services:
+#    portal.example:
+#        class: Portal\PortalBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+    app.controllers_listener:
+        class: Portal\PortalBundle\EventListener\ControllerListener
+        tags:
+              - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
+

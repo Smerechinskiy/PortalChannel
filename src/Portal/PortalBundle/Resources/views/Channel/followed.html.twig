@@ -1,0 +1,14 @@
+{% extends "PortalBundle::layout.html.twig" %}
+
+{% block content %}
+    <h3>Список моих подписчиков</h3>
+    {% if subscribers|length > 0 %}
+        {% for subscriber in subscribers %}
+            <div class="alert alert-warning">
+                <p><b>{{ subscriber }}</b></p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="alert alert-info">Список подписчиков пуст</div>
+    {% endif %}
+{% endblock %}

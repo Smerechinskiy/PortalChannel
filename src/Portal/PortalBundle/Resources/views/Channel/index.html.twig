@@ -1,0 +1,43 @@
+{% extends "PortalBundle::layout.html.twig" %}
+
+{% block content %}
+    <h3>Список всех каналов</h3>
+    {% if channels|length > 0 %}
+        <table class="table backend table-hover">
+            <thead>
+            <tr class="grey">
+                <th class="text-left">Название</th>
+                <th class="text-left">Описание</th>
+                <th class="text-center">Пользователь</th>
+                <th class="text-right">Подписаться / Отписаться</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for channel in channels %}
+                <tr>
+                    {% if user != channel.user  %}
+                        <td><b>{{ channel.name }}</b></td>
+                        <td>{{ channel.description }}</td>
+                        <td class="text-center">{{ channel.user }}</td>
+                        {% if channel in user.followedChannels %}
+                            <td align="right">
+                                <a class="delete" href="{{ path('portal_channel_un_follow', {'id': channel.id}) }}" title="Отписаться">
+                                    <i class="glyphicon glyphicon-remove-circle"></i>
+                                </a>
+                            </td>
+                            {% else %}
+                                <td align="right">
+                                    <a class="add" href="{{ path('portal_channel_follow', {'id': channel.id}) }}" title="Подписаться">
+                                        <i class="glyphicon glyphicon-ok-circle"></i>
+                                    </a>
+                                </td>
+                        {% endif %}
+                    {% endif %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-info">Список каналов пуст</div>
+    {% endif %}
+{% endblock %}

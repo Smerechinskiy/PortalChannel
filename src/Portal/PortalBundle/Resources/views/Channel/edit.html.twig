@@ -1,0 +1,20 @@
+{% extends "PortalBundle::layout.html.twig" %}
+
+{% block content %}
+    <h3>Редактирование канала</h3>
+    <a href="{{ path('portal_my_channels_page') }}">
+        <button class="button btn-ago" title="Вернуться к списку каналов">
+            <i class="glyphicon glyphicon-arrow-left"></i>  Вернуться
+        </button>
+    </a>
+    <div class="well clearfix">
+        {{ form_start(form) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.description) }}
+        <span>
+            {{ form_row(form.button) }}
+        </span>
+        {{ form_row(form._token) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
